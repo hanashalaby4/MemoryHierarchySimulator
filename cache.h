@@ -2,22 +2,24 @@
 
 using namespace std;
 
-const int BYTE_SIZE=8;
+
 
 
 
 #ifndef CACHE_H
 #define CACHE_H
 
-struct Byte{
-    vector<int> bits[BYTE_SIZE];
+const int BYTE_SIZE=8;
 
+struct CacheLine{
+    int tag;
+    bool valid;
 };
 
 class cache {
 private:
 
-vector<Byte> bytes;
+vector<CacheLine> cacheLines;
 int size;
 int lineSize;
 int accessTime;
